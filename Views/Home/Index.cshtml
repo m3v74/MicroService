@@ -1,0 +1,33 @@
+﻿<button type="submit" class="btn btn-sm btn-outline-danger" <a href="add">Добавить</a></button>
+<div id=out-table></div>
+
+<script type="text/x-jsrender" id="view-all">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Имя</th>
+                <th>Цена</th>
+                <th>Описание</th>
+                <th>Действия</th>
+            </tr>
+        </thead>
+        <tbody>            
+            {{for Response}}
+                <tr>
+                    <td>{{>name}}</td>
+                    <td>{{>price}}</td>
+                    <td>{{>description}}</td>
+                    <td>
+                        <a class="btn btn-sm btn-outline-primary" href="products/editproduct" title="Изменить">&check;</a>
+                        <form data-id=button-action>                            
+                            <button type="submit" class="btn btn-sm btn-outline-danger">
+                                &cross;
+                            </button>
+                        </form>
+                        <input data-id=id-record type="hidden" value={{>id}} />
+                    </td>
+                </tr>
+            {{/for}}            
+        </tbody>
+    </table>
+</script>
